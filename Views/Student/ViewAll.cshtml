@@ -1,0 +1,153 @@
+﻿@model IEnumerable<jQueryAjaxInAsp.NETMVC.Models.Student>
+
+@{
+    ViewBag.Title = "ViewAll";
+    Layout = null;
+}
+
+@*<br />
+/* <label>Name</label>
+<input type="text" id="name" size="5" /> &nbsp;
+<label>Age</label>
+<input type="text" id="age" size="5" />
+<label>School</label>
+<select id="school" style="width:100px; height:25px">
+    <option value="">All Country</option>
+    <option value="USA">USA</option>
+    <option value="Poland">Poland</option>
+    <option value="Finland">Finland</option>
+    <option value="Finland">Rjas</option>
+</select>
+<label>class</label>
+<select id="class" style="width:100px">
+    <option value="">class</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<label>Division</label>
+<select id="division" style="width:100px">
+    <option value="">Division</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+</select>
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+<input type="button" value="Search" id="btnSearch" onclick="search();"/> */*@
+
+
+<table class="table" table-striped table-condensed" id="studentTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+
+
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.School)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Division)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Class)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Division)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+
+                    <td>
+                        <a class="btn btn-primary btn-sm" onclick="Edit('@Url.Action("AddOrEdit", "Student", new { id=@item.ID})')">Edit</a> |
+                        <a class="btn btn-danger btn-sm" onclick="Delete('@Url.Action("Delete", "Student", new { id=@item.ID})')">Delete</a>
+                    </td>
+
+
+                </tr>
+            }
+    </tbody>
+</table>
+
+
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="jquery-ui.js"></script>
+    <script type="text/javascript">
+   /* var jsondata = */@Html.Raw(ViewBag.data)/*;
+
+        $(document).ready(function () {
+            debugger;
+        dataBinding(jsondata);
+    });
+
+    function dataBinding(json) {
+        debugger;
+            var tr;
+            //Append each row to html table
+            for (var i = 0; i < json.length; i++) {
+                tr = $('<tr/>');
+                tr.append("<td>" + json[i].Name + "</td>");
+                tr.append("<td>" + json[i].Age + "</td>");
+                tr.append("<td>" + json[i].School + "</td>");
+                tr.append("<td>" + json[i].Class + "</td>");
+                tr.append("<td>" + json[i].Division + "</td>");
+                tr.append("<td>" + json[i].Status + "</td>");
+                $('table').append(tr);
+            }
+        }
+
+
+        function search() {
+            debugger;
+            var name = $('#name').val();
+            var age = $('#age').val();
+            var School = $('#school').val();
+            var Class = $('#class').val();
+            var dvsion = $('#division').val();
+
+            var searchResult = [];
+            if (name != "" || age!="") {
+                var searchResult = jsondata.filter(function (el) {
+                    return el.Age == name;
+                });
+            }
+
+            
+        }*/
+
+
+    </script>
+    }

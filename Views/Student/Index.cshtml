@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#firstTab">View All</a></li>
+    <li><a data-toggle="tab" href="#secondTab">Add New</a></li>
+</ul>
+<div class="tab-content">
+    <div id="firstTab" class="tab-pane fade in  active">@Html.Action("ViewAll")</div>
+    <div id="secondTab" class="tab-pane fade in">@Html.Action("AddOrEdit")</div>
+</div>
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    @*<script src="jquery-ui.js"></script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            activatejQueryTable();
+
+        //    var age = "";
+        //    $(age).datepicker({
+        //    onSelect: function(value, ui) {
+        //        var today = new Date();
+        //        age = today.getFullYear() - ui.selectedYear;
+        //         $(item.age).val(age);
+        //    },
+        //    changeMonth: true,
+        //    changeYear: true
+        //})
+    })
+        
+
+        function search() {
+            debugger;
+            var name = $('#name').val();
+            var age = $('#age').val();
+            var School = $('#school').val();
+            var Class = $('#class').val();
+            var dvsion = $('#division').val();
+
+            var searchResult = [];
+            if (name != "" || age!="") {
+                var searchResult = jsondata.filter(function (el) {
+                    return el.Age == name;
+                });
+            }
+
+            
+        }
+
+
+        function activatejQueryTable() {
+            $("#studentTable").DataTable({
+                "searching": true
+            });
+        }
+
+    
+    </script>
+
+}
+
